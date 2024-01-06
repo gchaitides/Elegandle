@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegandle - Handcrafted Soy Candles</title>
+  <style>
+    body {
+      font-family: 'Noto Serif Display', serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    nav {
+      text-align: center;
+      background-color: #BDA26C;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section.hero {
+      position: relative;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/hero.jpg') center/cover no-repeat;
+    }
+
+    .text-container {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(85, 85, 85, 0.6);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #fff;
+    }
+
+    .motto {
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    .explore-button {
+      background-color: #BDA26C;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .explore-button:hover {
+      background-color: #8E764B;
+    }
+
+    section.products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background-color: #F5F5F5;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .product {
+      text-align: center;
+      margin: 10px;
+      flex: 1 0 calc(33.33% - 20px); /* Three products per row */
+      max-width: calc(33.33% - 20px);
+    }
+
+    .product-card {
+      background-color: #fff;
+      height: 20rem;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-image {
+      width: 100%;
+      height: auto;
+      max-height: 60%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      flex-grow: 1;
+      object-fit: contain;
+    }
+
+    .product-description {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #333; /* Change text color to ensure visibility */
+    }
+
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #BDA26C;
+    }
+
+    footer {
+      background-color: #BDA26C;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .product-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .modal-content {
+      max-width: 80%;
+      max-height: 80%;
+      overflow: hidden;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: auto;
+      max-height: 100vh;
+      object-fit: contain;
+    }
+
+    .pagination {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .pagination a {
+      display: inline-block;
+      padding: 8px 16px;
+      text-decoration: none;
+      color: #BDA26C;
+      border: 1px solid #BDA26C;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+
+    .pagination .current {
+      background-color: #BDA26C;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+
+  <section id="hero" class="hero">
+    <div class="hero-image"></div>
+    <div class="text-container">
+      <h1>Welcome to Elegandle</h1>
+      <p>Discover the perfect ambiance for your space with our handcrafted soy candles.</p>
+      <p class="motto">Handmade with love.</p>
+      <p class="motto">100% natural soy.</p>
+      <button class="explore-button" onclick="scrollToProducts()">Explore Products</button>
+    </div>
+  </section>
+
+  <section id="products" class="products">
+      <!-- Product 1 -->
+      <section class="product">
+        <div class="product-card" onclick="openModal('/images/product7.jpg')">
+          <img class="product-image" src="/images/product7.jpg" alt="Product 7">
+          <p class="product-description">Handcrafted soy candle made with love. Perfect for creating a cozy atmosphere in your home.</p>
+          <p class="product-price">Price: €4</p>
+        </div>
+      </section>
+  
+      <!-- Product 2 -->
+      <section class="product">
+        <div class="product-card" onclick="openModal('/images/product8.jpg')">
+          <img class="product-image" src="/images/product8.jpg" alt="Product 8">
+          <p class="product-description">Indulge in the natural essence of soy wax with this beautifully crafted candle. A great gift for any occasion.</p>
+          <p class="product-price">Price: €4</p>
+        </div>
+      </section>
+  
+      <!-- Product 3 -->
+      <section class="product">
+        <div class="product-card" onclick="openModal('/images/product9.jpg')">
+          <img class="product-image" src="/images/product9.jpg" alt="Product 9">
+          <p class="product-description">Enhance your space with the soothing aroma of our hand-poured soy wax candle. 100% natural and environmentally friendly.</p>
+          <p class="product-price">Price: €4</p>
+        </div>
+      </section>
+  
+      <!-- Product 4 -->
+      <section class="product">
+        <div class="product-card" onclick="openModal('/images/product10.jpg')">
+          <img class="product-image" src="/images/product10.jpg" alt="Product 10">
+          <p class="product-description">Elevate your senses with this premium soy candle. Carefully crafted for a luxurious and calming experience.</p>
+          <p class="product-price">Price: €4</p>
+        </div>
+      </section>
+  
+      <!-- Product 5 -->
+      <section class="product">
+        <div class="product-card" onclick="openModal('/images/product11.jpg')">
+          <img class="product-image" src="/images/product11.jpg" alt="Product 11">
+          <p class="product-description">Immerse yourself in the natural beauty of soy wax. Our handmade candle adds warmth and style to any space.</p>
+          <p class="product-price">Price: €4</p>
+        </div>
+      </section>
+  
+      <!-- Product 6 -->
+      <section class="product">
+        <div class="product-card" onclick="openModal('/images/product12.jpg')">
+          <img class="product-image" src="/images/product12.jpg" alt="Product 12">
+          <p class="product-description">Experience the serenity of our 100% natural soy wax candle. A perfect gift for yourself or a loved one.</p>
+          <p class="product-price">Price: €4</p>
+        </div>
+      </section>
+
+
+    <!-- Pagination controls -->
+    <div class="pagination">
+        <a href="index.html#products" onclick="scrollToProducts()">1</a>
+      <span class="current">2</span>
+        </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Elegandle. All rights reserved.</p>
+  </footer>
+
+  <div id="productModal" class="product-modal" onclick="closeModal()">
+    <div class="modal-content">
+      <img id="modalImage" class="modal-image" src="" alt="Product">
+    </div>
+  </div>
+
+  <script>
+    function openModal(imagePath) {
+      document.getElementById('modalImage').src = imagePath;
+      document.getElementById('productModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('productModal').style.display = 'none';
+    }
+
+    function scrollToProducts() {
+      document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
